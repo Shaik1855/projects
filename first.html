@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Vault Login</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#0f172a,#1e293b,#0f172a);
+            overflow:hidden;
+        }
+
+        .container{
+            width:400px;
+            backdrop-filter:blur(15px);
+            background:rgba(255,255,255,0.08);
+            border:1px solid rgba(255,255,255,0.2);
+            border-radius:20px;
+            padding:30px;
+            color:white;
+            box-shadow:0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:10px;
+        }
+
+        p{
+            text-align:center;
+            margin-bottom:25px;
+            color:#cbd5e1;
+        }
+
+        .input-group{
+            margin-bottom:15px;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:10px;
+            outline:none;
+            background:rgba(255,255,255,0.1);
+            color:white;
+        }
+
+        input::placeholder{
+            color:#cbd5e1;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:10px;
+            background:#38bdf8;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        button:hover{
+            background:#0ea5e9;
+        }
+
+        .dashboard{
+            display:none;
+            text-align:center;
+        }
+
+        .dashboard h2{
+            margin-bottom:15px;
+            color:#4ade80;
+        }
+
+        .dashboard button{
+            margin-top:15px;
+            background:#ef4444;
+        }
+
+        .dashboard button:hover{
+            background:#dc2626;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div id="loginPage">
+        <h1>Cyber Vault</h1>
+        <p>Secure Access Portal</p>
+
+        <div class="input-group">
+            <input type="text" id="username" placeholder="Username">
+        </div>
+
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Password">
+        </div>
+
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div class="dashboard" id="dashboard">
+        <h2>Access Granted</h2>
+        <p>Welcome to the Cyber Vault Dashboard.</p>
+        <p>You can expand this into a real project.</p>
+
+        <button onclick="logout()">Logout</button>
+    </div>
+
+</div>
+
+<script>
+function login() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    if(username === "admin" && password === "1234"){
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+    } else {
+        alert("Invalid Username or Password");
+    }
+}
+
+function logout(){
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("loginPage").style.display = "block";
+}
+</script>
+
+</body>
+</html>
